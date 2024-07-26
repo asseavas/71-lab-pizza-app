@@ -21,7 +21,7 @@ const AdminDishes = () => {
   const removeDish = async (id: string) => {
     try {
       if (window.confirm('Are you sure you want to delete?')) {
-        await dispatch(deleteDish(id));
+        await dispatch(deleteDish(id)).unwrap();
         await dispatch(fetchDishes());
         toast.success('Dish deleted!');
       }

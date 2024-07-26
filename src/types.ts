@@ -41,7 +41,13 @@ export interface ApiOrders {
   [id: string]: ApiOrder;
 }
 
+export interface DishWithAmount extends Dish {
+  amount: number;
+  totalPrice: number;
+}
+
 export interface Order extends ApiOrder {
   id: string;
   totalPrice: number;
+  dishes: DishWithAmount[];
 }

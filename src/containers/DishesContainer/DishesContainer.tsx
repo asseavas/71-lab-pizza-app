@@ -12,6 +12,7 @@ import { useAppDispatch } from '../../app/hooks';
 import { ApiOrder, Customer, OrderInfo } from '../../types';
 import axiosApi from '../../axiosApi';
 import Spinner from '../../components/Spinner/Spinner';
+import { toast } from 'react-toastify';
 
 const DishesContainer = () => {
   const dispatch = useAppDispatch();
@@ -80,6 +81,7 @@ const DishesContainer = () => {
         phone: '',
       });
       setShowModal(false);
+      toast.success('Order added!');
     }
   };
 
@@ -166,12 +168,6 @@ const DishesContainer = () => {
           >
             Cancel
           </button>
-          {/*<button*/}
-          {/*  className="btn btn-success"*/}
-          {/*  // onClick={() => navigate('checkout')}*/}
-          {/*>*/}
-          {/*  Order*/}
-          {/*</button>*/}
         </div>
       </Modal>
     </>

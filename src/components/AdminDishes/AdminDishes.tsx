@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import { deleteDish, fetchDishes } from '../../store/dishesThunks';
 import Spinner from '../Spinner/Spinner';
 import { toast } from 'react-toastify';
+import ButtonSpinner from '../Spinner/ButtonSpinner';
+import { Link } from 'react-router-dom';
 
 const AdminDishes = () => {
   const dispatch = useAppDispatch();
@@ -33,17 +35,27 @@ const AdminDishes = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="d-flex align-items-center flex-column">
       {dishesLoading ? (
         <Spinner />
       ) : (
         dishes.map((dish) => (
-          <AdminDishItem
-            key={dish.id}
-            dish={dish}
-            onDelete={() => removeDish(dish.id)}
-            deleteLoading={deleteLoading}
-          />
+          <AdminDishItem key={dish.id} dish={dish}>
+            <button
+              className="btn btn-danger"
+              onClick={() => removeDish(dish.id)}
+              disabled={deleteLoading ? deleteLoading === dish.id : false}
+            >
+              {deleteLoading && deleteLoading === dish.id && <ButtonSpinner />}
+              Delete
+            </button>
+            <Link
+              className="btn btn-primary"
+              to={`/admin/edit-dish/${dish.id}`}
+            >
+              Edit
+            </Link>
+          </AdminDishItem>
         ))
       )}
     </div>

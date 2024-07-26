@@ -28,9 +28,13 @@ export interface Customer {
   phone: string;
 }
 
+export interface OrderInfo {
+  [id: string]: number;
+}
+
 export interface ApiOrder {
+  order: OrderInfo;
   customer: Customer;
-  dishes: CartDish[];
 }
 
 export interface ApiOrders {

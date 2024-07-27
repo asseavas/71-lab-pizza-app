@@ -23,8 +23,8 @@ const NewDish = () => {
 
   return (
     <div className="row mt-2">
-      <div className="col">
-        <DishForm onSubmit={onSubmit} isLoading={isCreating}/>
+      <div className="col d-flex align-items-center flex-column">
+        <DishForm onSubmit={onSubmit} isLoading={isCreating} />
       </div>
     </div>
   );

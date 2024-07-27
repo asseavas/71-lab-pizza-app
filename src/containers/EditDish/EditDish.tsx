@@ -36,7 +36,7 @@ const EditDish = () => {
 
   return (
     <div className="row mt-2">
-      <div className="col">
+      <div className="col d-flex align-items-center flex-column">
         {isFetching && <Spinner />}
         {dish && (
           <DishForm

@@ -43,7 +43,7 @@ const DishForm: React.FC<Props> = ({
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
+    <form onSubmit={onFormSubmit} className="d-flex flex-column gap-3 w-75">
       <h4>{existingDish ? 'Edit dish' : 'Add new dish'}</h4>
       <div className="form-group">
         <label htmlFor="title">Title</label>

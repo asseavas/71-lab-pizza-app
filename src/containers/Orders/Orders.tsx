@@ -1,6 +1,5 @@
 import Spinner from '../../components/Spinner/Spinner';
-import { useDispatch } from 'react-redux';
-import { useAppSelector } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
   selectFetchOrdersLoading,
   selectOrders,
@@ -12,7 +11,7 @@ import { selectDeleteDishLoading } from '../../store/dishesSlice';
 import { toast } from 'react-toastify';
 
 const Orders = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const orders = useAppSelector(selectOrders);
   const loading = useAppSelector(selectFetchOrdersLoading);
   const deleteLoading = useAppSelector(selectDeleteDishLoading);
